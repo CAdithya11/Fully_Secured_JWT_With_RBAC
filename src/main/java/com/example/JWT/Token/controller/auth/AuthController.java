@@ -1,10 +1,9 @@
-package com.example.JWT.Token.controller;
+package com.example.JWT.Token.controller.auth;
 
+import com.example.JWT.Token.dto.userProfile.LoginResponseDTO;
 import com.example.JWT.Token.model.User;
-import com.example.JWT.Token.service.AuthService;
+import com.example.JWT.Token.service.auth.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +19,7 @@ public class AuthController {
         return "Server is running!";
     }
     @PostMapping("/login")
-    public String login(@RequestBody User user){
+    public LoginResponseDTO login(@RequestBody User user){
        return authService.login(user);
     }
 

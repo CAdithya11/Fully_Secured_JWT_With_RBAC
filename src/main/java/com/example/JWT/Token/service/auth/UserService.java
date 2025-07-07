@@ -1,4 +1,4 @@
-package com.example.JWT.Token.service;
+package com.example.JWT.Token.service.auth;
 
 import com.example.JWT.Token.model.User;
 import com.example.JWT.Token.repo.UserRepository;
