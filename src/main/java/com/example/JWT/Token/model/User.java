@@ -1,12 +1,12 @@
 package com.example.JWT.Token.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 import java.time.LocalDateTime;
 
+import com.example.JWT.Token.enums.UserRole;
+
 @Entity
-@Data
 @Table(name = "user")
 public class User {
     @Id
@@ -18,6 +18,8 @@ public class User {
     private Integer nic;
     private String email;
     private Integer age;
+    @Enumerated
+    private UserRole role;
     @Lob
     private String profile_image;
     private String password;
@@ -93,6 +95,12 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public UserRole getRole() {
+        return role;
+    }
+    public void setRole(UserRole role) {
+        this.role = role;
     }
 
     public LocalDateTime getCreated_at() {
