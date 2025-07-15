@@ -20,7 +20,7 @@ public class UserService implements UserDetailsService {
                 return org.springframework.security.core.userdetails.User.builder()
                         .username(user.getEmail())
                         .password(user.getPassword())
-                        .roles("USER")
+                        .roles(user.getRole().toString())
                         .build();
             }else {
                 throw new UsernameNotFoundException("User not found with email: " + username);

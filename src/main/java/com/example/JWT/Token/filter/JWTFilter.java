@@ -2,7 +2,6 @@ package com.example.JWT.Token.filter;
 
 import com.example.JWT.Token.repo.UserRepository;
 import com.example.JWT.Token.service.auth.JWTService;
-import com.example.JWT.Token.service.auth.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -42,6 +41,7 @@ public class JWTFilter extends OncePerRequestFilter {
         UserDetails userDetails = User.builder()
                 .username(user.getEmail())
                 .password(user.getPassword())
+                .roles(user.getRole().toString())
                 .build();
 
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());

@@ -31,6 +31,14 @@ public class JWTService {
         return data.getSubject();
     }
 
+    public String getRole (String token){
+        Claims data = getTokenData(token);
+        if(data != null) {
+            return data.get("role").toString();
+        }
+        return null;
+    }
+
     public Claims getTokenData(String token){
        try{
            return Jwts

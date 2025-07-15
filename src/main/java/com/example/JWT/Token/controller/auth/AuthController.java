@@ -14,21 +14,23 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-    @GetMapping("/")
+    @GetMapping("/user")
     public String home() {
         return "Server is running!";
     }
+
     @PostMapping("/login")
-    public LoginResponseDTO login(@RequestBody User user){
-       return authService.login(user);
+    public LoginResponseDTO login(@RequestBody User user) {
+        return authService.login(user);
     }
 
     @PostMapping("/register")
-    public String registerUser(@RequestBody User user){
+    public String registerUser(@RequestBody User user) {
         return authService.register(user);
     }
+
     @GetMapping("/hello")
-    public String sayHello(){
+    public String sayHello() {
         return "Authorized";
     }
 }
